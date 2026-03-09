@@ -45,6 +45,7 @@ dependencies {
 ## 🚀 How to Use (Code Snippets)
 
 1. 인증 및 토큰 갱신 (Authentication)
+
 슈어엠 API는 보안을 위해 1시간 만료 토큰을 사용합니다. 샘플 코드 내 SureMClient 클래스는 토큰 만료 시 자동으로 재인증을 시도하는 로직을 포함하고 있습니다.
 
 - SECRET_KEY 는 슈어엠 제공 사이트([슈어비즈](https://surebiz.co.kr)) 기본정보-내정보에서 확인 해주시기 바랍니다.
