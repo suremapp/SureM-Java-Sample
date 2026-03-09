@@ -1,7 +1,8 @@
 package com.surem.example;
 
-import com.surem.sdk.java.SureMClient;
-import com.surem.sdk.java.SureMModels;
+import com.surem.core.SureMClient;
+import com.surem.core.SureMModels;
+import com.surem.core.SureMServiceType;
 
 import java.io.File;
 import java.net.URL;
@@ -17,7 +18,7 @@ public class MMSExample {
 //                .reservedTime("20990101000000") // 예약시간 설정 yyyyMMddHHmmss
                 .build();
 
-        SureMModels.ApiResponse<Void> sendResult = client.sendMessage("mms", smsRequest);
+        SureMModels.ApiResponse<Void> sendResult = client.sendMessage(SureMServiceType.MMS, smsRequest);
         System.out.println("LMS 발송 결과: " + sendResult.getCode());
     }
 
@@ -41,7 +42,7 @@ public class MMSExample {
                 .imageKey(imageKey)
                 .build();
 
-        SureMModels.ApiResponse<Void> sendResult = client.sendMessage("mms", smsRequest);
+        SureMModels.ApiResponse<Void> sendResult = client.sendMessage(SureMServiceType.MMS, smsRequest);
         System.out.println("MMS 발송 결과: " + sendResult.getCode());
     }
 }

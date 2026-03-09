@@ -1,4 +1,4 @@
-package com.surem.sdk.java;
+package com.surem.core;
 
 import lombok.*;
 

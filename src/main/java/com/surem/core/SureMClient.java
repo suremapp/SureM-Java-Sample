@@ -1,9 +1,8 @@
-package com.surem.sdk.java;
+package com.surem.core;
 
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import lombok.Getter;
 import okhttp3.*;
 
 import java.io.File;
@@ -48,16 +47,19 @@ public class SureMClient {
                 gson.toJson(authReq), MediaType.get("application/json; charset=utf-8"));
 
         Request request = new Request.Builder()
-                .url(BASE_URL + "/api/v1/auth/token")
+                .url(BASE_URL + SureMServiceType.AUTH.servicePath)
                 .post(body)
                 .build();
 
         try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful()) throw new IOException("인증 실패: " + response);
 
             SureMModels.ApiResponse<SureMModels.AuthResponse> authRes = gson.fromJson(response.body().string(),
                     new TypeToken<SureMModels.ApiResponse<SureMModels.AuthResponse>>() {
                     }.getType());
+
+            if (!response.isSuccessful()) throw new IOException("인증 실패: " + authRes.toString());
+
+
             this.accessToken = authRes.getData().getAccessToken();
             // 만료시간 1시간 설정 (안전을 위해 55분으로 설정 권장)
             this.tokenExpiry = LocalDateTime.now().plusMinutes(55);
@@ -97,8 +99,8 @@ public class SureMClient {
     /**
      * 메시지 전송 (SMS/MMS 공통)
      */
-    public SureMModels.ApiResponse<Void> sendMessage(String type, SureMModels.MessageRequest message) throws IOException {
-        String path = "/api/v1/send/" + type.toLowerCase();
+    public SureMModels.ApiResponse<Void> sendMessage(SureMServiceType type, SureMModels.MessageRequest message) throws IOException {
+        String path = type.servicePath;
 
         RequestBody body = RequestBody.create(
                 gson.toJson(message), MediaType.get("application/json; charset=utf-8"));
