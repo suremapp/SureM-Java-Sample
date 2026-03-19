@@ -4,7 +4,7 @@ import com.surem.core.SureMClient;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        SureMClient client = new SureMClient("drtest", "sljjk2fr57wscdxagxooolnd1o2mla8gmlnjpo8t");
+        SureMClient client = new SureMClient("USER_CODE", "SECRET_KEY");
 
         SMSExample.sendSMS(client);
         MMSExample.sendLMS(client);

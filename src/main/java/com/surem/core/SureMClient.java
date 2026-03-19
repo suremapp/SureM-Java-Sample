@@ -13,7 +13,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SureMClient {
 
     private static final String BASE_URL = "https://rest.surem.com";
-    private static final String SUB_URL = "https://gw.surem.com";
     private final OkHttpClient httpClient = new OkHttpClient();
     private final Gson gson = new Gson();
 
