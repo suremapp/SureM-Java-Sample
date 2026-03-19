@@ -8,6 +8,7 @@ import okhttp3.*;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SureMClient {
 
@@ -20,6 +21,12 @@ public class SureMClient {
     private final String secretKey;
     private String accessToken;
     private LocalDateTime tokenExpiry;
+
+    private static final AtomicInteger messageId  = new AtomicInteger(0);
+
+    public int getMessageId() {
+        return messageId.incrementAndGet();
+    }
 
 
     public SureMClient(String userCode, String secretKey) {
@@ -99,7 +106,7 @@ public class SureMClient {
     /**
      * 메시지 전송 (SMS/MMS 공통)
      */
-    public SureMModels.ApiResponse<Void> sendMessage(SureMServiceType type, SureMModels.MessageRequest message) throws IOException {
+    public SureMModels.ApiResponse<Void> sendMessage(SureMServiceType type, SureMModels.BaseRequest message) throws IOException {
         String path = type.servicePath;
 
         RequestBody body = RequestBody.create(

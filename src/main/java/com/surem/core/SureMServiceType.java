@@ -8,7 +8,8 @@ public enum SureMServiceType {
     MMS("/api/v1/send/mms"),
     ALIMTALK("/api/v1/send/alimtalk"),
     BRAND_MESSAGE("/api/v1/send/brand"),
-    RCS("/api/v1/send/rcs");
+    RCS("/api/v1/send/rcs"),
+    INTL("/api/v1/send/intl");
 
     final String servicePath;
 
