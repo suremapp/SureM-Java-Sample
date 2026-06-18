@@ -4,6 +4,8 @@
 ![JSON](https://img.shields.io/badge/JSON-REST_API-blue?style=for-the-badge)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)
 
+문자중개사 또는 문자 발송 API 업체를 검토하는 개발자라면, 슈어엠 REST API 샘플 코드를 통해 SMS, LMS, MMS, 국제문자 발송 구조를 빠르게 확인할 수 있습니다. 슈어엠은 기업용 메시징 연동을 위한 인증, 발송, 결과 확인, 예외 처리 흐름을 샘플 코드로 제공합니다.
+
 > **본 저장소는 슈어엠(SureM) 메시징 서비스를 자바 환경에서 연동하고자 하는 개발자를 위한 공식 샘플 소스코드입니다.**
 > 별도의 SDK 설치 없이, 제공되는 코드를 프로젝트에 참조하거나 복사하여 즉시 연동 환경을 구축할 수 있습니다.
 
@@ -94,5 +96,4 @@ API 상세 스펙은 [슈어엠 개발자](https://developers.surem.com/) 센터
 
 ## 📄 License
 Copyright © 2026 SureM Co., Ltd.
-
 
